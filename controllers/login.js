@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
