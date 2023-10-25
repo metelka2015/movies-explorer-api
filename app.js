@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable no-console */
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
