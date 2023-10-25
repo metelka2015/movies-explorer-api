@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
@@ -16,7 +15,6 @@ const login = (req, res, next) => {
         throw new UnauthorizedError('Пользователь не найден');
       }
       return bcrypt.compare(password, user.password)
-        // eslint-disable-next-line consistent-return
         .then((matched) => {
           if (!matched) {
             // хеши не совпали — отклоняем

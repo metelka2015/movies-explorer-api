@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable max-len */
 const bcrypt = require('bcryptjs');
 const {
   HTTP_STATUS_OK,
@@ -25,7 +23,11 @@ const getCurrentUser = (req, res, next) => userModel.findById({ _id: req.user._i
 
 // PATCH /users/me - обновляет информацию о пользователе (email и имя)
 
-const updateUserById = (req, res, next) => userModel.findByIdAndUpdate(req.user._id, { name: req.body.name, email: req.body.email }, { new: true, runValidators: true })
+const updateUserById = (req, res, next) => userModel.findByIdAndUpdate(
+  req.user._id,
+  { name: req.body.name, email: req.body.email },
+  { new: true, runValidators: true },
+)
   .then((r) => res.status(HTTP_STATUS_OK).send(r))
   .catch(next);
 

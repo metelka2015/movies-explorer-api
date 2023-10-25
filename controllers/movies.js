@@ -1,10 +1,9 @@
-/* eslint-disable max-len */
-const movieModel = require('../models/movie');
 const {
   HTTP_STATUS_OK,
   HTTP_STATUS_CREATED,
-// eslint-disable-next-line import/order
 } = require('http2').constants;
+const movieModel = require('../models/movie');
+
 const NotFoundError = require('../utils/errors/notFoundError');
 const ForbiddenError = require('../utils/errors/forbiddenError');
 
@@ -21,10 +20,31 @@ const getMovies = (req, res, next) => {
 
 const createMovies = (req, res, next) => {
   const {
-    country, director, duration, year, description, image, trailerLink, thumbnail, nameRU, nameEN, movieId,
+    country,
+    director,
+    duration,
+    year,
+    description,
+    image,
+    trailerLink,
+    thumbnail,
+    nameRU,
+    nameEN,
+    movieId,
   } = req.body;
   movieModel.create({
-    country, director, duration, year, description, image, trailerLink, thumbnail, movieId, nameRU, nameEN, owner: req.user._id,
+    country,
+    director,
+    duration,
+    year,
+    description,
+    image,
+    trailerLink,
+    thumbnail,
+    movieId,
+    nameRU,
+    nameEN,
+    owner: req.user._id,
   })
     .then((movie) => res.status(HTTP_STATUS_CREATED).send(movie))
     .catch(next);

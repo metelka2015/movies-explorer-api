@@ -1,4 +1,3 @@
-/* eslint-disable eol-last */
 const { HTTP_STATUS_NOT_FOUND } = require('http2').constants;
 
 class NotFoundError extends Error {

@@ -1,14 +1,11 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable no-console */
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
 const { errors } = require('celebrate');
-// eslint-disable-next-line import/no-extraneous-dependencies
 const { celebrate, Joi } = require('celebrate');
 const router = require('./routes');
-const { login } = require('./controllers/login');
+const { login } = require('./controllers/login').default;
 const { createUser } = require('./controllers/users');
 const handleError = require('./middlewares/errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
